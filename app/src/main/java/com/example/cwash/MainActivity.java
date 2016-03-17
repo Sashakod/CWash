@@ -1,6 +1,7 @@
 package com.example.cwash;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +15,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.cwash.fragment.AccManagerFragment;
 import com.example.cwash.fragment.ExitFragment;
@@ -62,10 +65,6 @@ public class MainActivity extends AppCompatActivity
         accManagerFragment = new AccManagerFragment();
         settingsFragment = new SettingsFragment();
         exitFragment = new ExitFragment();
-
-
-
-
     }
 
     @Override
@@ -74,7 +73,11 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (getFragmentManager().getBackStackEntryCount() > 0 ){
+                getFragmentManager().popBackStack();
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 
@@ -127,4 +130,5 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
