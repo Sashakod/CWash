@@ -24,8 +24,9 @@ import com.example.cwash.fragment.HistoryFragment;
 import com.example.cwash.fragment.SettingsFragment;
 import com.example.cwash.fragment.StaticsFragment;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final int LAYOUT = R.layout.activity_main;
     FragmentTransaction fragmentTransaction;
     Fragment historyFragment;
     Fragment staticsFragment;
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(LAYOUT);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity
         settingsFragment = new SettingsFragment();
         exitFragment = new ExitFragment();
     }
+
 
     @Override
     public void onBackPressed() {

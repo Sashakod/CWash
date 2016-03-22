@@ -10,10 +10,12 @@ import android.view.ViewGroup;
 import com.example.cwash.R;
 
 public class HistoryFragment extends Fragment {
+    private static final int LAYOUT = R.layout.fragment_history;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_history,null);
-        return v;
+        View view = inflater.inflate(LAYOUT,null);
+        return view;
     }
 }
