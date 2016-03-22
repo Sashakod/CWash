@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import com.example.cwash.R;
 
 public class SettingsFragment extends Fragment {
+    private static final int LAYOUT = R.layout.fragment_settings;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
