@@ -40,6 +40,30 @@ public class HistoryFragment extends Fragment {
         data.add(new CarDTO("Машина 4"));
         data.add(new CarDTO("Машина 5"));
         data.add(new CarDTO("Машина 6"));
+        data.add(new CarDTO("Машина 1"));
+        data.add(new CarDTO("Машина 2"));
+        data.add(new CarDTO("Машина 3"));
+        data.add(new CarDTO("Машина 4"));
+        data.add(new CarDTO("Машина 5"));
+        data.add(new CarDTO("Машина 6"));
+        data.add(new CarDTO("Машина 1"));
+        data.add(new CarDTO("Машина 2"));
+        data.add(new CarDTO("Машина 3"));
+        data.add(new CarDTO("Машина 4"));
+        data.add(new CarDTO("Машина 5"));
+        data.add(new CarDTO("Машина 6"));
+        data.add(new CarDTO("Машина 1"));
+        data.add(new CarDTO("Машина 2"));
+        data.add(new CarDTO("Машина 3"));
+        data.add(new CarDTO("Машина 4"));
+        data.add(new CarDTO("Машина 5"));
+        data.add(new CarDTO("Машина 6"));
+        data.add(new CarDTO("Машина 1"));
+        data.add(new CarDTO("Машина 2"));
+        data.add(new CarDTO("Машина 3"));
+        data.add(new CarDTO("Машина 4"));
+        data.add(new CarDTO("Машина 5"));
+        data.add(new CarDTO("Машина 6"));
 
         return data;
     }

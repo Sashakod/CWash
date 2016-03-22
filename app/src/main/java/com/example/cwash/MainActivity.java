@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Fragment accManagerFragment;
     Fragment settingsFragment;
     Fragment exitFragment;
+    FragmentManager fragmentManager;
+
 
 
 
@@ -67,6 +69,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         accManagerFragment = new AccManagerFragment();
         settingsFragment = new SettingsFragment();
         exitFragment = new ExitFragment();
+
+        fragmentManager = getFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.fragment_container, historyFragment);
+        fragmentTransaction.commit();
     }
 
 
@@ -109,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction = fragmentManager.beginTransaction();
         switch(item.getItemId()){
             case R.id.nav_history:
                 fragmentTransaction.replace(R.id.fragment_container, historyFragment);
