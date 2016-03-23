@@ -34,37 +34,19 @@ public class HistoryFragment extends Fragment {
 
     private List<CarDTO> creatMockCarListData() {
         List<CarDTO> data = new ArrayList<>();
-        data.add(new CarDTO("Машина 1"));
-        data.add(new CarDTO("Машина 2"));
-        data.add(new CarDTO("Машина 3"));
-        data.add(new CarDTO("Машина 4"));
-        data.add(new CarDTO("Машина 5"));
-        data.add(new CarDTO("Машина 6"));
-        data.add(new CarDTO("Машина 1"));
-        data.add(new CarDTO("Машина 2"));
-        data.add(new CarDTO("Машина 3"));
-        data.add(new CarDTO("Машина 4"));
-        data.add(new CarDTO("Машина 5"));
-        data.add(new CarDTO("Машина 6"));
-        data.add(new CarDTO("Машина 1"));
-        data.add(new CarDTO("Машина 2"));
-        data.add(new CarDTO("Машина 3"));
-        data.add(new CarDTO("Машина 4"));
-        data.add(new CarDTO("Машина 5"));
-        data.add(new CarDTO("Машина 6"));
-        data.add(new CarDTO("Машина 1"));
-        data.add(new CarDTO("Машина 2"));
-        data.add(new CarDTO("Машина 3"));
-        data.add(new CarDTO("Машина 4"));
-        data.add(new CarDTO("Машина 5"));
-        data.add(new CarDTO("Машина 6"));
-        data.add(new CarDTO("Машина 1"));
-        data.add(new CarDTO("Машина 2"));
-        data.add(new CarDTO("Машина 3"));
-        data.add(new CarDTO("Машина 4"));
-        data.add(new CarDTO("Машина 5"));
-        data.add(new CarDTO("Машина 6"));
-
+        data.add(new CarDTO("Honda", "16:43 23.03.2016", "М462ТР178", "500 руб."));
+        data.add(new CarDTO("Honda", "16:43 23.03.2016", "М462ТР178", "500 руб."));
+        data.add(new CarDTO("Honda", "16:43 23.03.2016", "М462ТР178", "500 руб."));
+        data.add(new CarDTO("Honda", "16:43 23.03.2016", "М462ТР178", "500 руб."));
+        data.add(new CarDTO("Honda", "16:43 23.03.2016", "М462ТР178", "500 руб."));
+        data.add(new CarDTO("Honda", "16:43 23.03.2016", "М462ТР178", "500 руб."));
+        data.add(new CarDTO("Honda", "16:43 23.03.2016", "М462ТР178", "500 руб."));
+        data.add(new CarDTO("Honda", "16:43 23.03.2016", "М462ТР178", "500 руб."));
+        data.add(new CarDTO("Honda", "16:43 23.03.2016", "М462ТР178", "500 руб."));
+        data.add(new CarDTO("Honda", "16:43 23.03.2016", "М462ТР178", "500 руб."));
+        data.add(new CarDTO("Honda", "16:43 23.03.2016", "М462ТР178", "500 руб."));
+        data.add(new CarDTO("Honda", "16:43 23.03.2016", "М462ТР178", "500 руб."));
+        data.add(new CarDTO("Honda", "16:43 23.03.2016", "М462ТР178", "500 руб."));
         return data;
     }
 }

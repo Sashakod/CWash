@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     FragmentManager fragmentManager;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,10 +68,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         settingsFragment = new SettingsFragment();
         exitFragment = new ExitFragment();
 
-        fragmentManager = getFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container, historyFragment);
-        fragmentTransaction.commit();
+        showFragmentHisory();
+
     }
 
 
@@ -120,18 +116,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch(item.getItemId()){
             case R.id.nav_history:
                 fragmentTransaction.replace(R.id.fragment_container, historyFragment);
+                getSupportActionBar().setTitle("Заказы");
                 break;
             case R.id.nav_statistics:
                 fragmentTransaction.replace(R.id.fragment_container, staticsFragment);
+                getSupportActionBar().setTitle("Статистика");
                 break;
             case R.id.nav_acc_manager:
                 fragmentTransaction.replace(R.id.fragment_container, accManagerFragment);
+                getSupportActionBar().setTitle("Управление аккаунтом");
                 break;
             case R.id.nav_settings:
                 fragmentTransaction.replace(R.id.fragment_container, settingsFragment);
+                getSupportActionBar().setTitle("Настройки");
                 break;
             case R.id.nav_exit:
                 fragmentTransaction.replace(R.id.fragment_container, exitFragment);
+                getSupportActionBar().setTitle("Выход");
                 break;
         }
         fragmentTransaction.addToBackStack(null);
@@ -139,6 +140,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showFragmentHisory(){
+        fragmentManager = getFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.fragment_container, historyFragment);
+        fragmentTransaction.commit();
+        getSupportActionBar().setTitle("Заказы");
     }
 
 }
