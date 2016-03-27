@@ -3,32 +3,36 @@ package com.example.cwash;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
+import com.example.cwash.dataBase.OrderContract;
+import com.example.cwash.dataBase.OrderDBHelper;
 import com.example.cwash.fragment.AccManagerFragment;
 import com.example.cwash.fragment.ExitFragment;
-import com.example.cwash.fragment.HistoryFragment;
+import com.example.cwash.fragment.OrdersFragment;
 import com.example.cwash.fragment.SettingsFragment;
 import com.example.cwash.fragment.StaticsFragment;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.zip.DataFormatException;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final int LAYOUT = R.layout.activity_main;
     FragmentTransaction fragmentTransaction;
-    Fragment historyFragment;
+    Fragment ordersFragment;
     Fragment staticsFragment;
     Fragment accManagerFragment;
     Fragment settingsFragment;
@@ -62,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        historyFragment = new HistoryFragment();
+        ordersFragment = new OrdersFragment();
         staticsFragment = new StaticsFragment();
         accManagerFragment = new AccManagerFragment();
         settingsFragment = new SettingsFragment();
@@ -70,6 +74,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         showFragmentHisory();
 
+        OrderDBHelper orderDBHelper = new OrderDBHelper(this);
+        SQLiteDatabase db = orderDBHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(OrderContract.OrderEntry.COLUMN_NAME_CAR, "Приора");
+        values.put(OrderContract.OrderEntry.COLUMN_NAME_TIME, SimpleDateFormat.getDateTimeInstance().format(new Date()));
+        values.put(OrderContract.OrderEntry.COLUMN_NAME_NUMBER, "E018TP178");
+        values.put(OrderContract.OrderEntry.COLUMN_NAME_PRICE, "500");
+
+        long newRowId;
+        newRowId = db.insert(OrderContract.OrderEntry.TABLE_NAME, null, values);
     }
 
 
@@ -114,8 +129,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         fragmentTransaction = fragmentManager.beginTransaction();
         switch(item.getItemId()){
-            case R.id.nav_history:
-                fragmentTransaction.replace(R.id.fragment_container, historyFragment);
+            case R.id.nav_orders:
+                fragmentTransaction.replace(R.id.fragment_container, ordersFragment);
                 getSupportActionBar().setTitle("Заказы");
                 break;
             case R.id.nav_statistics:
@@ -145,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void showFragmentHisory(){
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container, historyFragment);
+        fragmentTransaction.add(R.id.fragment_container, ordersFragment);
         fragmentTransaction.commit();
         getSupportActionBar().setTitle("Заказы");
     }

@@ -8,26 +8,26 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.cwash.R;
-import com.example.cwash.dto.CarDTO;
+import com.example.cwash.dto.OrderDTO;
 
 import java.util.List;
 
-public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarViewHolder> {
+public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.OrderViewHolder> {
 
-    private List<CarDTO> data;
+    private List<OrderDTO> data;
 
-    public CarListAdapter(List<CarDTO> data) {
+    public OrderListAdapter(List<OrderDTO> data) {
         this.data = data;
     }
 
     @Override
-    public CarViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-       View view =  LayoutInflater.from(parent.getContext()).inflate(R.layout.car_item, parent, false);
-        return new CarViewHolder(view);
+    public OrderViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+       View view =  LayoutInflater.from(parent.getContext()).inflate(R.layout.order_item, parent, false);
+        return new OrderViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(CarViewHolder holder, int position) {
+    public void onBindViewHolder(OrderViewHolder holder, int position) {
         holder.title_car.setText(data.get(position).getTitle_car());
         holder.title_time.setText(data.get(position).getTitle_time());
         holder.title_number.setText(data.get(position).getTitle_number());
@@ -39,14 +39,14 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarViewH
         return data.size();
     }
 
-    public static class CarViewHolder extends RecyclerView.ViewHolder{
+    public static class OrderViewHolder extends RecyclerView.ViewHolder{
         CardView cardView;
         TextView title_car;
         TextView title_time;
         TextView title_number;
         TextView title_price;
 
-        public CarViewHolder(View itemView) {
+        public OrderViewHolder(View itemView) {
             super(itemView);
 
             cardView = (CardView) itemView.findViewById(R.id.cardView);

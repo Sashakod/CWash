@@ -1,13 +1,13 @@
 package com.example.cwash.dto;
 
-public class CarDTO {
+public class OrderDTO {
 
     private String title_car;
     private String title_time;
     private String title_number;
     private String title_price;
 
-    public CarDTO(String title_car, String title_time,String title_number, String title_price) {
+    public OrderDTO(String title_car, String title_time, String title_number, String title_price) {
         this.title_car = title_car;
         this.title_time = title_time;
         this.title_number = title_number;
