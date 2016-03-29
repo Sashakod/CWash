@@ -74,17 +74,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         showFragmentHisory();
 
-        OrderDBHelper orderDBHelper = new OrderDBHelper(this);
-        SQLiteDatabase db = orderDBHelper.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(OrderContract.OrderEntry.COLUMN_NAME_CAR, "Приора");
-        values.put(OrderContract.OrderEntry.COLUMN_NAME_TIME, SimpleDateFormat.getDateTimeInstance().format(new Date()));
-        values.put(OrderContract.OrderEntry.COLUMN_NAME_NUMBER, "E018TP178");
-        values.put(OrderContract.OrderEntry.COLUMN_NAME_PRICE, "500");
-
-        long newRowId;
-        newRowId = db.insert(OrderContract.OrderEntry.TABLE_NAME, null, values);
     }
 
 
