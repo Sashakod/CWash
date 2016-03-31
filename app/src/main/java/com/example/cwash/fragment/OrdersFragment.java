@@ -1,6 +1,8 @@
 package com.example.cwash.fragment;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -20,6 +22,8 @@ import java.util.List;
 public class OrdersFragment extends Fragment {
     private static final int LAYOUT = R.layout.fragment_orders;
 
+    FloatingActionButton fab;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,16 +33,27 @@ public class OrdersFragment extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         rv.setAdapter(new OrderListAdapter(creatMockOrderListData()));
 
-        FloatingActionButton fab = (FloatingActionButton)getActivity().findViewById(R.id.fab);
+        fab = (FloatingActionButton)getActivity().findViewById(R.id.fab);
+        fab.show();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AddOrderFragment addOrderFragment = new AddOrderFragment();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, addOrderFragment);
+                fragmentTransaction.commit();
             }
         });
 
         return view;
     }
 
+    @Override
+    public void onPause() {
+        fab.hide();
+        super.onPause();
+    }
 
     private List<OrderDTO> creatMockOrderListData() {
         List<OrderDTO> data = new ArrayList<>();

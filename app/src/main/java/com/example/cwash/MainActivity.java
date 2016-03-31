@@ -3,8 +3,6 @@ package com.example.cwash;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,21 +10,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.cwash.dataBase.OrderContract;
-import com.example.cwash.dataBase.OrderDBHelper;
 import com.example.cwash.fragment.AccManagerFragment;
 import com.example.cwash.fragment.ExitFragment;
 import com.example.cwash.fragment.OrdersFragment;
 import com.example.cwash.fragment.SettingsFragment;
 import com.example.cwash.fragment.StaticsFragment;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.zip.DataFormatException;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
