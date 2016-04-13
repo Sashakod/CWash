@@ -14,7 +14,7 @@ public class TimePickerFragment extends DialogFragment implements android.app.Ti
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        orderFragment = (AddOrderFragment) getFragmentManager().findFragmentByTag("ORDER_FRAG_TAG");
+        orderFragment = (AddOrderFragment) getFragmentManager().findFragmentByTag("ADD_ORDER_FRAG_TAG");
         hour = orderFragment.hour;
         minute = orderFragment.minute;
 

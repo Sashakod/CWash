@@ -20,6 +20,9 @@ public class AddOrderFragment extends Fragment {
     private static final int LAYOUT = R.layout.fragment_add_order;
     int hour;
     int minute;
+    int year;
+    int month;
+    int day;
 
     String[] categorys = {"Легковая", "Джип", "Фургон"};
 
@@ -41,18 +44,23 @@ public class AddOrderFragment extends Fragment {
         final Calendar c = Calendar.getInstance();
         hour = c.get(Calendar.HOUR_OF_DAY);
         minute = c.get(Calendar.MINUTE);
+        year = c.get(Calendar.YEAR);
+        month = c.get(Calendar.MONTH);
+        day = c.get(Calendar.DAY_OF_MONTH);
 
         return v;
     }
 
     @Override
     public void onResume() {
+        dateTampering();
         timeTampering();
         super.onResume();
     }
-    private void timeTampering(){
-        EditText edit_time = (EditText)getActivity().findViewById(R.id.edit_time);
-        edit_time.setText(hour+":"+normalizeMinute(minute));
+
+    private void timeTampering() {
+        EditText edit_time = (EditText) getActivity().findViewById(R.id.edit_time);
+        edit_time.setText(hour + ":" + normalizeMinute(minute));
         edit_time.setRawInputType(InputType.TYPE_NULL);
         edit_time.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,8 +78,31 @@ public class AddOrderFragment extends Fragment {
                 }
             }
         });
+    }
+
+    private void dateTampering(){
+        EditText edit_date = (EditText)getActivity().findViewById(R.id.edit_date);
+        edit_date.setText(day+"."+month+"."+year);
+        edit_date.setRawInputType(InputType.TYPE_NULL);
+        edit_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment newFragment = new DatePickerFragment();
+                newFragment.show(getFragmentManager(), "datePicker");
+            }
+        });
+        edit_date.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    DialogFragment newFragment = new DatePickerFragment();
+                    newFragment.show(getFragmentManager(), "datePicker");
+                }
+            }
+        });
 
     }
+
     private String normalizeMinute(int minute){
         if (minute<10)
             return "0"+minute;
