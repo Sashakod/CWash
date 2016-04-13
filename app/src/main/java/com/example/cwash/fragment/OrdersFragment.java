@@ -41,7 +41,7 @@ public class OrdersFragment extends Fragment {
                 AddOrderFragment addOrderFragment = new AddOrderFragment();
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, addOrderFragment);
+                fragmentTransaction.replace(R.id.fragment_container, addOrderFragment,"ORDER_FRAG_TAG");
                 fragmentTransaction.commit();
             }
         });

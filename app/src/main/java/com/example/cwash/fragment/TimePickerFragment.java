@@ -4,24 +4,28 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.widget.TimePicker;
 
-import android.text.format.DateFormat;
-import java.util.Calendar;
-
 public class TimePickerFragment extends DialogFragment implements android.app.TimePickerDialog.OnTimeSetListener{
+    public int hour;
+    public int minute;
+    AddOrderFragment orderFragment;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final Calendar c = Calendar.getInstance();
-        int hour = c.get(Calendar.HOUR_OF_DAY);
-        int minute = c.get(Calendar.MINUTE);
+        orderFragment = (AddOrderFragment) getFragmentManager().findFragmentByTag("ORDER_FRAG_TAG");
+        hour = orderFragment.hour;
+        minute = orderFragment.minute;
 
         return new TimePickerDialog(getActivity(), this, hour, minute, DateFormat.is24HourFormat(getActivity()));
     }
 
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-
+        orderFragment.hour = hourOfDay;
+        orderFragment.minute = minute;
+        orderFragment.onResume();
     }
+
 }

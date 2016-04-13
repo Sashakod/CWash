@@ -32,7 +32,7 @@ public class StaticsFragment extends Fragment {
         OrderDBHelper orderDBHelper = new OrderDBHelper(getActivity());
         SQLiteDatabase db = orderDBHelper.getWritableDatabase();
 
-        /*db.delete(OrderContract.OrderEntry.TABLE_NAME,null,null);*/
+        db.delete(OrderContract.OrderEntry.TABLE_NAME,null,null);
 
         ContentValues values = new ContentValues();
         values.put(OrderContract.OrderEntry.COLUMN_NAME_CAR, "Приора");
