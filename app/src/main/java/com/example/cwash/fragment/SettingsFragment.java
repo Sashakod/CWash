@@ -19,7 +19,7 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_settings,null);
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Настройки");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.title_setings);
         FloatingActionButton fab = (FloatingActionButton)getActivity().findViewById(R.id.fab);
         fab.hide();
 

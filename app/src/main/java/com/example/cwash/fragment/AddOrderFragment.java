@@ -2,6 +2,7 @@ package com.example.cwash.fragment;
 
 import android.app.DialogFragment;
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -15,6 +16,8 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -50,7 +53,7 @@ public class AddOrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(LAYOUT,null);
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Добавление заказа");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.title_add_order);
         FloatingActionButton fab = (FloatingActionButton)getActivity().findViewById(R.id.fab);
         fab.hide();
 
@@ -165,8 +168,10 @@ public class AddOrderFragment extends Fragment {
             case R.id.menu_check: {
                 OrdersFragment ordersFragment = (OrdersFragment) getFragmentManager().findFragmentByTag("ORDERS_FRAGMENT_TAG");
                 EditText edit_carModel = (EditText) getActivity().findViewById(R.id.edit_carModel);
-                ordersFragment.data.add(new OrderDTO(edit_carModel.getText().toString(), edit_time.getText().toString() + " "+ edit_date.getText().toString(),edit_number.getText().toString(), "500 руб."));
+                ordersFragment.data.add(new OrderDTO(edit_carModel.getText().toString(), edit_time.getText().toString() + " " + edit_date.getText().toString(), edit_number.getText().toString(), "500 руб."));
                 getFragmentManager().beginTransaction().replace(R.id.fragment_container, ordersFragment).commit();
+                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
             }
             break;
         }

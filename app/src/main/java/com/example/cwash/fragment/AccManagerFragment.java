@@ -19,7 +19,7 @@ public class AccManagerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(LAYOUT,null);
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Управление аккаунтом");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.title_acc_manag);
         FloatingActionButton fab = (FloatingActionButton)getActivity().findViewById(R.id.fab);
         fab.hide();
 

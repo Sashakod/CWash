@@ -19,8 +19,8 @@
                     android:id="@+id/edit_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Дата"
-                    android:hint="Дата"/>
+                    android:text="@string/text_date"
+                    android:hint="@string/text_hint_date"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -31,8 +31,8 @@
                     android:id="@+id/edit_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Время"
-                    android:hint="Время"/>
+                    android:text="@string/text_time"
+                    android:hint="@string/text_hint_time"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -43,7 +43,7 @@
                     android:id="@+id/edit_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Номер автомобиля"/>
+                    android:hint="@string/text_hint_carNumber" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -54,22 +54,22 @@
                     android:id="@+id/edit_carModel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Марка автомобиля"/>
+                    android:hint="@string/text_hint_carModel"
+                    android:inputType="textCapWords"/>
             </android.support.design.widget.TextInputLayout>
 
             <TextView
                 android:id="@+id/spinner_hint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Категория"
+                android:text="@string/text_category"
                 android:textSize="12sp"
                 android:paddingBottom="8dp"
                 android:paddingLeft="8dp"/>
             <Spinner
                 android:id="@+id/spinner_category"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Категория" />
+                android:layout_height="wrap_content" />
 
             <LinearLayout
                 android:layout_width="match_parent"

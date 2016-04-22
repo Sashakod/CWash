@@ -30,7 +30,7 @@ public class StaticsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_statics,null);
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Статистика");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.title_statistics);
         FloatingActionButton fab = (FloatingActionButton)getActivity().findViewById(R.id.fab);
         fab.hide();
 

@@ -19,7 +19,7 @@ public class ExitFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(LAYOUT,null);
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Выход");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.title_exit);
         FloatingActionButton fab = (FloatingActionButton)getActivity().findViewById(R.id.fab);
         fab.hide();
 

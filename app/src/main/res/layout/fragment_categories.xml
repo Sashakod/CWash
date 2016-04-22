@@ -12,4 +12,13 @@
 
     </android.support.v7.widget.RecyclerView>
 
+    <TextView
+        android:id="@+id/title_no_catigories"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/text_no_catigories"
+        android:textSize="24sp"
+        android:textColor="@android:color/secondary_text_dark"
+        android:gravity="center"/>
+
 </LinearLayout>

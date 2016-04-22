@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.cwash.MainActivity;
 import com.example.cwash.R;
@@ -46,14 +47,19 @@ public class OrdersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(LAYOUT, null);
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Заказы");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.title_orders);
 
-
+        TextView textView = (TextView)view.findViewById(R.id.title_no_orders);
 
         RecyclerView rv = (RecyclerView) view.findViewById(R.id.ordersRecyclerView);
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-        if (data != null)
-        rv.setAdapter(new OrderListAdapter(/*creatMockOrderListData()*/data));
+        if (data.size()>0) {
+            textView.setVisibility(View.GONE);
+            rv.setAdapter(new OrderListAdapter(/*creatMockOrderListData()*/data));
+        }
+        else{
+            rv.setVisibility(View.GONE);
+        }
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

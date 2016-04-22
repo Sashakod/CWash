@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentTransaction.replace(R.id.fragment_container, accManagerFragment);
                 break;
             case R.id.nav_settings:
-                fragmentTransaction.replace(R.id.fragment_container, categoriesFragment);
+                fragmentTransaction.replace(R.id.fragment_container, categoriesFragment, "CATEGORIES_FRAGMENT_TAG");
                 break;
             case R.id.nav_exit:
                 fragmentTransaction.replace(R.id.fragment_container, exitFragment);
