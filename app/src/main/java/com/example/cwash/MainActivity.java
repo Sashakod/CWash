@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.cwash.fragment.AccManagerFragment;
+import com.example.cwash.fragment.CategoriesFragment;
 import com.example.cwash.fragment.ExitFragment;
 import com.example.cwash.fragment.OrdersFragment;
 import com.example.cwash.fragment.SettingsFragment;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Fragment settingsFragment;
     Fragment exitFragment;
     FragmentManager fragmentManager;
+    CategoriesFragment categoriesFragment;
 
 
     @Override
@@ -61,9 +64,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         staticsFragment = new StaticsFragment();
         accManagerFragment = new AccManagerFragment();
         settingsFragment = new SettingsFragment();
+        categoriesFragment = new CategoriesFragment();
         exitFragment = new ExitFragment();
 
-        showFragmentHisory();
+        showFragmentOrders();
 
     }
 
@@ -82,14 +86,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
-    }
+    }*/
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -102,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -110,24 +114,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction = fragmentManager.beginTransaction();
         switch(item.getItemId()){
             case R.id.nav_orders:
-                fragmentTransaction.replace(R.id.fragment_container, ordersFragment);
-                getSupportActionBar().setTitle("Заказы");
+                fragmentTransaction.replace(R.id.fragment_container, ordersFragment, "ORDERS_FRAGMENT_TAG");
                 break;
             case R.id.nav_statistics:
                 fragmentTransaction.replace(R.id.fragment_container, staticsFragment);
-                getSupportActionBar().setTitle("Статистика");
                 break;
             case R.id.nav_acc_manager:
                 fragmentTransaction.replace(R.id.fragment_container, accManagerFragment);
-                getSupportActionBar().setTitle("Управление аккаунтом");
                 break;
             case R.id.nav_settings:
-                fragmentTransaction.replace(R.id.fragment_container, settingsFragment);
-                getSupportActionBar().setTitle("Настройки");
+                fragmentTransaction.replace(R.id.fragment_container, categoriesFragment);
                 break;
             case R.id.nav_exit:
                 fragmentTransaction.replace(R.id.fragment_container, exitFragment);
-                getSupportActionBar().setTitle("Выход");
                 break;
         }
         fragmentTransaction.addToBackStack(null);
@@ -137,12 +136,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    private void showFragmentHisory(){
+    private void showFragmentOrders(){
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container, ordersFragment);
+        fragmentTransaction.add(R.id.fragment_container, ordersFragment, "ORDERS_FRAGMENT_TAG");
         fragmentTransaction.commit();
-        getSupportActionBar().setTitle("Заказы");
     }
 
 }

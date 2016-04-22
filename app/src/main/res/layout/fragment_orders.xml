@@ -3,10 +3,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/h_f">
+    android:id="@+id/f_o">
 
  <android.support.v7.widget.RecyclerView
-     android:id="@+id/recyclerView"
+     android:id="@+id/ordersRecyclerView"
      android:layout_width="match_parent"
      android:layout_height="match_parent">
 
